@@ -9,7 +9,7 @@ const JobsGrid = ({ jobsList, isLoading }) => {
         <Spinner animation="border" variant="info" />
       ) : (
         <>
-          <h3>Showing {jobsList.length} jobs!</h3>
+          <h3>{`Showing ${jobsList.length} ${jobsList.length > 1 ? "jobs" : "job"}!`}</h3>
           {jobsList.map(job => (
             <JobCard key={job.id} job={job} />
           ))}

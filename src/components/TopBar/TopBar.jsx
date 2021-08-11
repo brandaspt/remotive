@@ -7,7 +7,7 @@ const TopBar = () => {
   return (
     <Container fluid className="TopBar">
       <Link to="/">
-        <h1 className="py-1 text-center">Remotive Strive</h1>
+        <h1 className="py-1 text-center m-0">Remotive Strive</h1>
       </Link>
     </Container>
   )
