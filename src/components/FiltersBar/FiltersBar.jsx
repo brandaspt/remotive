@@ -11,7 +11,6 @@ const FiltersBar = ({ handleCategoryChange, handleSearch }) => {
   const getCategories = useCallback(async () => {
     setIsLoading(true)
     const { data } = await fetchCategories()
-    console.log(data)
     setCategories([{ name: "All", id: 0 }, ...data.jobs])
     setIsLoading(false)
   }, [])

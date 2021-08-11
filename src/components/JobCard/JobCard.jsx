@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import moment from "moment"
 
 import "./JobCard.css"
+import ToggleFavoriteIcon from "../ToggleFavoriteIcon/ToggleFavoriteIcon"
 
 const JobCard = ({ job }) => {
   const [isShowingDesc, setIsShowingDesc] = useState(false)
@@ -45,9 +46,10 @@ const JobCard = ({ job }) => {
               </Card.Text>
             )}
           </div>
-          <div>
+          <div className="d-flex align-items-center">
+            <ToggleFavoriteIcon company={job.company_name} />
             <Link to={`/companies/${job.company_name}`}>
-              <Card.Subtitle className="mb-2 text-muted text-right">{job.company_name}</Card.Subtitle>
+              <Card.Subtitle className="m-0 ml-2 text-muted text-right">{job.company_name}</Card.Subtitle>
             </Link>
           </div>
         </div>

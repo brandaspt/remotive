@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react"
-import { Row } from "react-bootstrap"
 import { withRouter } from "react-router-dom"
 import { fetchByCompany } from "../../backend/requests"
 import JobsGrid from "../JobsGrid/JobsGrid"
