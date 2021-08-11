@@ -1,4 +1,8 @@
 .TopBar {
-  background-color: rgb(86, 143, 230);
-  color: rgb(221, 221, 94);
+  background-color: #ffda90;
+}
+
+.TopBar a,
+.TopBar a:hover {
+  color: black;
 }

@@ -1,0 +1,9 @@
+.JobCard {
+  width: 100%;
+}
+.JobCard .job-type {
+  text-transform: capitalize;
+}
+.JobCard .badge {
+  align-self: flex-start;
+}
