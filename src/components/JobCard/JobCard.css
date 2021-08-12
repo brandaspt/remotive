@@ -7,3 +7,7 @@
 .JobCard .badge {
   align-self: flex-start;
 }
+
+.JobCard .ToggleFavoriteIcon {
+  cursor: pointer;
+}
