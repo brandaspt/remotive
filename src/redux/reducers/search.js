@@ -1,11 +1,12 @@
-import { SET_JOBS, SET_LOADING } from "../types/types"
+import * as types from "../types/types"
 import { initialState } from "../store"
 
 const searchReducer = (state = initialState.search, action) => {
   switch (action.type) {
-    case SET_JOBS:
+    case types.SET_SEARCH_JOBS:
       return { ...state, results: action.payload }
-    case SET_LOADING:
+
+    case types.SET_SEARCH_LOADING:
       return { ...state, loading: action.payload }
     default:
       return state
