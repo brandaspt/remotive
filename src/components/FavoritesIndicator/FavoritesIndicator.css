@@ -1,12 +1,9 @@
 .FavoritesIndicator {
   position: relative;
-  height: 50px;
-  width: 50px;
   background-color: white;
   border-radius: 5px;
-  font-size: 1.4em;
   cursor: pointer;
-  color: gold;
+  color: black;
   transition: all 0.3s;
 }
 .FavoritesIndicator:hover {
@@ -14,14 +11,14 @@
 }
 
 .FavoritesIndicator .num-of-favs {
-  height: 18px;
-  width: 18px;
+  height: 15px;
+  width: 15px;
   background-color: rgba(255, 0, 0, 0.63);
   color: white;
   font-size: 0.6em;
   border-radius: 50%;
   position: absolute;
-  top: 4%;
-  right: 11%;
+  top: 2px;
+  right: 2px;
   z-index: 3;
 }

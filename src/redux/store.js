@@ -11,12 +11,15 @@ export const initialState = {
     companies: [],
     jobs: [],
   },
-  searchResults: [],
+  search: {
+    results: [],
+    loading: false,
+  },
 }
 
 const mainReducer = combineReducers({
   favorites: favoritesReducer,
-  searchResults: searchReducer,
+  search: searchReducer,
 })
 
 const store = createStore(mainReducer, composeEnhancers(applyMiddleware(thunk)))
