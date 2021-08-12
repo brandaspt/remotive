@@ -12,13 +12,12 @@ const Home = () => {
   const getJobs = useCallback(async query => {
     setIsLoading(true)
     const { data } = await fetchByQuery(query)
-    console.log(data)
     setJobsList(data.jobs)
     setIsLoading(false)
   }, [])
 
   const handleCategoryChange = async category => {
-    if (category === "All") await getJobs()
+    if (category === "All") await getJobs("")
     else {
       setIsLoading(true)
       const { data } = await fetchByCategory(category)
