@@ -4,7 +4,7 @@ import FavoriteItem from "../components/FavoriteItem/FavoriteItem"
 
 const mapStateToProps = state => state
 
-const Favourites = ({ favorites }) => {
+const Favorites = ({ favorites }) => {
   return (
     <Container className="d-flex flex-wrap justify-content-center align-items-center">
       {favorites.map(companyName => (
@@ -14,4 +14,4 @@ const Favourites = ({ favorites }) => {
   )
 }
 
-export default connect(mapStateToProps)(Favourites)
+export default connect(mapStateToProps)(Favorites)
