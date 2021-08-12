@@ -1,45 +1,27 @@
-import { useState, useCallback, useEffect } from "react"
+import { useEffect } from "react"
+import { connect } from "react-redux"
 import { Container } from "react-bootstrap"
-import { fetchByCategory, fetchByQuery } from "../backend/requests"
+
 import FiltersBar from "../components/FiltersBar/FiltersBar"
-
 import JobsGrid from "../components/JobsGrid/JobsGrid"
+import { fetchJobs } from "../redux/actions/actions"
 
-const Home = () => {
-  const [jobsList, setJobsList] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+const mapStateToProps = state => state
+const mapDispatchToProps = dispatch => ({
+  getJobs: endpoint => dispatch(fetchJobs(endpoint)),
+})
 
-  const getJobs = useCallback(async query => {
-    setIsLoading(true)
-    const { data } = await fetchByQuery(query)
-    setJobsList(data.jobs)
-    setIsLoading(false)
-  }, [])
-
-  const handleCategoryChange = async category => {
-    if (category === "All") await getJobs("")
-    else {
-      setIsLoading(true)
-      const { data } = await fetchByCategory(category)
-      setJobsList(data.jobs)
-      setIsLoading(false)
-    }
-  }
-
-  const handleSearch = async query => {
-    getJobs(query)
-  }
-
+const Home = ({ search, getJobs }) => {
   useEffect(() => {
-    getJobs("")
+    getJobs("/remote-jobs?limit=200")
   }, [getJobs])
 
   return (
     <Container>
-      <FiltersBar handleCategoryChange={handleCategoryChange} handleSearch={handleSearch} />
-      <JobsGrid jobsList={jobsList} isLoading={isLoading} />
+      <FiltersBar />
+      <JobsGrid jobsList={search.results} isLoading={search.loading} />
     </Container>
   )
 }
 
-export default Home
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

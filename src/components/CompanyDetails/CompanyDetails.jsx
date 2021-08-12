@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react"
 import { withRouter } from "react-router-dom"
-import { fetchByCompany } from "../../backend/requests"
+import remotive from "../../backend/backend"
 import JobsGrid from "../JobsGrid/JobsGrid"
 
 const CompanyDetails = ({ match }) => {
@@ -9,7 +9,7 @@ const CompanyDetails = ({ match }) => {
 
   const getCompanyDetails = useCallback(async () => {
     setIsLoading(true)
-    const { data } = await fetchByCompany(match.params.company_name)
+    const { data } = await remotive.get(`/remote-jobs?company_name=${match.params.company_name}`)
     setJobsList(data.jobs)
     setIsLoading(false)
   }, [match.params.company_name])

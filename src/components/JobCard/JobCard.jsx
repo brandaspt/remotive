@@ -11,9 +11,10 @@ const JobCard = ({ job }) => {
   return (
     <Card className="JobCard my-1">
       <Card.Body>
-        <div className="d-flex">
-          <Card.Title className="m-0">{job.title}</Card.Title>
-          <Badge variant="info" className="ml-3 my-auto">
+        <div className="d-flex align-items-center">
+          <ToggleFavoriteIcon job={job} />
+          <Card.Title className="my-0 ml-2 mr-4">{job.title}</Card.Title>
+          <Badge variant="info" className="my-auto">
             {job.category}
           </Badge>
         </div>
@@ -47,7 +48,7 @@ const JobCard = ({ job }) => {
             )}
           </div>
           <div className="d-flex align-items-center">
-            <ToggleFavoriteIcon company={job.company_name} />
+            <ToggleFavoriteIcon companyName={job.company_name} />
             <Link to={`/companies/${job.company_name}`}>
               <Card.Subtitle className="m-0 ml-2 text-muted text-right">{job.company_name}</Card.Subtitle>
             </Link>

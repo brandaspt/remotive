@@ -5,14 +5,16 @@ import Home from "./views/Home"
 
 import "./App.css"
 import Company from "./views/Company"
-import Favorites from "./views/Favorites"
+import FavoriteCompanies from "./views/FavoriteCompanies"
+import FavoriteJobs from "./views/FavoriteJobs"
 
 const App = () => {
   return (
     <div className="App">
       <TopBar />
       <Route exact path="/" component={Home} />
-      <Route exact path="/favorites" component={Favorites} />
+      <Route exact path="/favoriteCompanies" component={FavoriteCompanies} />
+      <Route exact path="/favoriteJobs" component={FavoriteJobs} />
       <Route path="/companies/:company_name" component={Company} />
     </div>
   )
